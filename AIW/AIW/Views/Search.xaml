@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:AIW.ViewModels;assembly=AIW"
+             xmlns:customrenderer="clr-namespace:AIW.CustomRenderer"
+             xmlns:views="clr-namespace:AIW"
+             x:Class="AIW.Search"
+             BackgroundColor="Black"
+             Title="SEARCH">
+   
+    <!--<ContentPage.BindingContext>
+        <local:SearchViewModel/>
+    </ContentPage.BindingContext>-->
+    
+    
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="LightGreenColor">#2FA999</Color>
+            <Color x:Key="BorderColor">#D8D8D8</Color>
+            <Style x:Key="LableStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="#666666" />
+                <Setter Property="FontSize" Value="Large" />
+            </Style>
+            <Style x:Key="FrameStyle" TargetType="Frame">
+                <Setter Property="HasShadow" Value="False" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="CornerRadius" Value="45" />
+                <Setter Property="BorderColor" Value="{StaticResource BorderColor}" />
+                <Setter Property="BackgroundColor" Value="White"/>
+            </Style>
+            <Style x:Key="EntryStyle" TargetType="Entry">
+                <Setter Property="HeightRequest" Value="40"></Setter>
+                <Setter Property="Margin" Value="0,0,0,0"></Setter>
+            </Style>
+            <Style x:Key="SearchBarStyle" TargetType="SearchBar">
+                <Setter Property="BackgroundColor" Value="black"/>
+            </Style>
+            <Style TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="Black" />
+                <Setter Property="BorderColor" Value="SaddleBrown"></Setter>
+                <Setter Property="CornerRadius" Value="15"></Setter>
+                <Setter Property="Padding" Value="10,1,10,1" />
+
+            </Style>
+            <Style TargetType="Entry">
+                <Setter Property="BackgroundColor" Value="Black"></Setter>
+                <Setter Property="TextColor" Value="SaddleBrown"></Setter>
+                <Setter Property="PlaceholderColor" Value="SaddleBrown" />
+                
+            </Style>
+           
+
+
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+   
+    <ContentPage.Content>
+
+      
+
+
+            
+            
+            <StackLayout Padding="6,6,6,6" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
+
+
+                <!--<ContentView x:Name="popupLoadingView" BackgroundColor="#C0808080" Padding="10, 0" IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                    <StackLayout Orientation="Vertical" HeightRequest="150" WidthRequest="200" BackgroundColor="White">
+
+                        <ActivityIndicator x:Name="activityIndicator" Margin="0,50,0,0" VerticalOptions="Center" HorizontalOptions="Center" Color="Black" WidthRequest="30" HeightRequest="30" ></ActivityIndicator>
+                        <Label x:Name="lblLoadingText" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" VerticalTextAlignment="Center" Text="Loading..."></Label>
+                    </StackLayout>
+                </StackLayout>
+            </ContentView>-->
+                
+            <!--<Frame>
+                    <Entry >
+                        
+                    </Entry>
+                  
+            </Frame>-->
+            <!--<customrenderer:MyEntry></customrenderer:MyEntry>-->
+            <customrenderer:MySearchBar x:Name="searchBar"  CancelButtonColor="Red"  FontFamily="Arial"  Style="{StaticResource Key=SearchBarStyle}" Text="{Binding SearchText}" SearchCommand="{Binding SearchCommand}"  Placeholder="Tap here to search"   HorizontalTextAlignment="Center"  PlaceholderColor="SaddleBrown" Margin="0" FontSize="17"  TextColor="SandyBrown" />
+            
+            <ListView x:Name="listSearchResults"  ItemsSource="{Binding ListViewSearchModel}"   BackgroundColor="Black" RowHeight="100" HasUnevenRows="False"  >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                                <Frame   BorderColor="Brown" HeightRequest="90"  CornerRadius="15" HasShadow="True"  BackgroundColor="Black" Margin="2,3,2,3">
+                                    <StackLayout  Orientation="Horizontal" VerticalOptions="FillAndExpand" >
+                                        <StackLayout  HorizontalOptions="Start" Orientation="Vertical" Spacing="0">
+                                            <Image  WidthRequest="90" HeightRequest="60" VerticalOptions="FillAndExpand"  Source="{Binding ImageURL}" ></Image>
+                                            <Label   Text="{Binding VideoId}" VerticalTextAlignment="Start" VerticalOptions="End" HorizontalOptions="FillAndExpand"  MinimumWidthRequest="100" TextColor="SaddleBrown" FontSize="12" HorizontalTextAlignment="Center"></Label>
+                                        </StackLayout>
+                                        <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical">
+                                            <Label  HorizontalOptions="FillAndExpand" TextColor="SandyBrown"  Text="{Binding Title}" FontSize="14" FontAttributes="Italic"></Label>
+                                            <Label  HorizontalOptions="FillAndExpand" TextColor="SaddleBrown" Text="{Binding ChanelId}" FontSize="12"></Label>
+                                        </StackLayout>
+                                        <!--<StackLayout Orientation="Vertical" >
+                                        <customrenderer:MyButton Text="V" HeightRequest="35" WidthRequest="35" TextColor="SaddleBrown" BackgroundColor="Black" BorderColor="SaddleBrown"></customrenderer:MyButton>
+                                </StackLayout>-->
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+
+            <!--<views:PopUp x:Name="myPopUp" IsVisible="True"  AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0.5,0.5,0.6,0.6"></views:PopUp>-->
+
+       
+    </ContentPage.Content>
+</ContentPage>

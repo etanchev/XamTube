@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:AIW.CustomRenderer"
+             
+             x:Class="AIW.BindingTest"
+             Title="BindingTest">
+    
+    <ContentPage.Content>
+        <StackLayout x:Name="stackLayout">
+            <Label x:Name="lable" TextColor="Wheat" Text="{Binding Path=Value}" BindingContext="{x:Reference Name=slider}"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <!--<Label x:Name="lableBehindTheCodeBindings"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />-->
+            <Frame x:Name="frame" BorderColor="{Binding Path=FrameColor}" WidthRequest="200" HeightRequest="200">
+                
+            </Frame>
+            <!--<Entry x:Name="entry"   VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Entry>-->
+            <!--<ProgressBar Progress="{Binding Path=DownloadProgress}"></ProgressBar>-->
+            <Slider x:Name="slider" Maximum="360"  HorizontalOptions="FillAndExpand"></Slider>
+            <Button x:Name="button"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

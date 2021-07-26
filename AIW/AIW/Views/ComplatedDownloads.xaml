@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local1="clr-namespace:AIW.ViewModels"
+             xmlns:video="clr-namespace:FormsVideoLibrary"
+             xmlns:customControl="clr-namespace:AIW.MyCustomControls"
+             xmlns:customrenderer="clr-namespace:AIW.CustomRenderer"
+             x:Class="AIW.ComplatedDownloads"
+             Title="COMPLATED">
+
+
+    
+
+    <!-- the bellow 3 lines of code create global binding to the View Model -->
+    <!--<ContentPage.BindingContext>
+        <local1:ComplatedViewModel/>
+    </ContentPage.BindingContext>-->
+
+
+    <!--<StackLayout IsVisible="True" Opacity="0.1" WidthRequest="10" HeightRequest="10">
+        <customControl:ImageButton x:Name="myImageButton" VerticalOptions="Center" HorizontalOptions="Center" ButtonText="ClearRecords" >
+
+        </customControl:ImageButton>
+    </StackLayout>-->
+    <ContentPage.Content>
+       
+        <StackLayout x:Name="outerStackLayout"   Orientation="Vertical"  Padding="0,10,0,0">
+            <!--<customControl:MyAlertDialog x:Name="myImageButton" MinimumHeightRequest="100" VerticalOptions="Center" HorizontalOptions="Center" AreTransportControlsEnabled="True" >
+
+            </customControl:MyAlertDialog>-->
+
+            <customrenderer:MyListView   x:Name="listComplatedDownloads"  VerticalOptions="End" ItemsSource="{Binding LVComplatedDownloads}"  BackgroundColor="Transparent"  HasUnevenRows="True" >
+            <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <customrenderer:MyViewCell>
+                            <Frame  BorderColor="Brown"   CornerRadius="15" HasShadow="True"  BackgroundColor="Black" Margin="2,3,2,3">
+                                <!--<Frame.GestureRecognizers>
+                                    <TapGestureRecognizer   Tapped="FrameTapped">                                  
+                                    </TapGestureRecognizer>
+                                </Frame.GestureRecognizers>-->
+                                <StackLayout  Orientation="Horizontal" VerticalOptions="FillAndExpand">
+                                    
+                                    <StackLayout  HorizontalOptions="Start" Orientation="Vertical">
+                                        <Image  WidthRequest="90" HeightRequest="60" VerticalOptions="FillAndExpand"  Source="{Binding Image}" ></Image>
+                                        <Label   Text="{Binding FileType}"  VerticalTextAlignment="Start" VerticalOptions="End" HorizontalOptions="FillAndExpand" MinimumWidthRequest="100" TextColor="SaddleBrown" FontSize="12" HorizontalTextAlignment="Center"></Label>
+                                    </StackLayout>
+                                    <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical">
+                                        <Label  HorizontalOptions="FillAndExpand"  TextColor="SandyBrown" Text="{Binding FileNameAndExt}" FontSize="13" FontFamily="Arial" FontAttributes="Italic"></Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="End" MinimumWidthRequest="120">
+                                        <Label Text="{Binding FileSizeMB}" FontSize="15" Margin="3"  TextColor="SandyBrown" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand"></Label>
+                                        <Label Text="Mb"  FontSize="15" Margin="3"  TextColor="SandyBrown" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="End"></Label>
+                                    </StackLayout>
+                                   
+                                </StackLayout>
+                            </Frame>
+                        </customrenderer:MyViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </customrenderer:MyListView>
+           
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

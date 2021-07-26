@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AIW.MyCustomControls.ImageButton"
+             Padding="3"
+            
+             >
+  <ContentView.Content>
+        <Frame CornerRadius="4" Padding="5" HasShadow="True"  BackgroundColor="Accent" BorderColor="#DEDEDE">
+            <StackLayout Orientation="Horizontal" Padding="0">
+                <Image x:Name="innerImage"  WidthRequest="10" HeightRequest="10" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand"></Image>
+                <Label x:Name="innerLable"   Text="Clear Records" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
+            </StackLayout>  
+        </Frame>
+    </ContentView.Content>
+</ContentView>
